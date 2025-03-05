@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11.2%;
+
+    --primary: 211 96% 62%;
+    --primary-rgb: 65, 157, 252;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 70%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11.2%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 211 96% 62%;
+    --primary-rgb: 65, 157, 252;
+    --primary-foreground: 222 47% 11.2%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 215 20% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm dark:bg-black/20 dark:border-white/10;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .message-bubble {
+    @apply rounded-2xl px-4 py-3 shadow-sm transition-all duration-300 animate-fade-in-up;
+  }
+  
+  .assistant-message {
+    @apply message-bubble bg-assistant dark:bg-secondary/60 max-w-[85%] mr-auto;
+  }
+  
+  .user-message {
+    @apply message-bubble bg-user dark:bg-primary/20 max-w-[85%] ml-auto;
+  }
+  
+  .typing-indicator {
+    @apply flex space-x-1 items-center;
+  }
+  
+  .typing-dot {
+    @apply w-2 h-2 rounded-full bg-primary/70 animate-pulse-subtle;
+  }
+  
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .gradient-border {
+    position: relative;
+    border-radius: var(--radius);
+  }
+  
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius) + 1px);
+    padding: 1px;
+    background: linear-gradient(to right, rgba(var(--primary-rgb), 0.4), rgba(var(--primary-rgb), 0.1));
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-shimmer before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full transition-colors hover:bg-primary/50;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .neo-blur {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 dark:bg-black/20;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-br from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent;
+  }
+}

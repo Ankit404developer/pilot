@@ -1,0 +1,102 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Dark mode support */
+html {
+  color-scheme: dark;
+  background-color: #000000;
+}
+
+body {
+  background-color: #000000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* AnkitXpilot brand color */
+.ankitxpilot-accent {
+  color: #0FA0CE; /* Matching the cyan accent in the logo */
+}
+
+/* Mobile responsive padding */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Code styling */
+.code-token-tag {
+  color: #569CD6;
+}
+
+.code-token-attr-name {
+  color: #9CDCFE;
+}
+
+.code-token-attr-value {
+  color: #CE9178;
+}
+
+.code-token-string {
+  color: #CE9178;
+}
+
+.code-token-keyword {
+  color: #C586C0;
+}
+
+.code-token-comment {
+  color: #6A9955;
+}
+
+.code-token-property {
+  color: #4EC9B0;
+}
+
+.code-token-value {
+  color: #B5CEA8;
+}
